@@ -103,24 +103,6 @@ The camera continuously captures video frames. **MediaPipe Hands** identifies ha
 * 👥 Add multiplayer mode
 * 🤖 Improve gesture recognition accuracy
 
-## 🎥 Project Demo
-
-Add your gameplay video or GIF here:
-
-```markdown
-## 🎥 Project Demo
-
-[Watch the Demo](YOUR_DEMO_LINK_HERE)
-```
-
-## 🔗 Project Links
-
-**GitHub Repository:**
-`YOUR_GITHUB_REPOSITORY_LINK`
-
-**Live Demo:**
-`YOUR_LIVE_DEMO_LINK`
-
 ## 👩‍💻 Author
 
 **CHIMPIRI MAHA LAKSHMI**
