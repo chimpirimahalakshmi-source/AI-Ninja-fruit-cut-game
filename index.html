@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Fruit Ninja AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+         BACKGROUND
+         ============================== -->
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+
+    <!-- ==============================
+         MAIN APP
+         ============================== -->
+
+    <main class="app">
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    ⚔️
+                </div>
+
+                <div>
+                    <h1>FRUIT <span>NINJA AI</span></h1>
+
+                    <p>
+                        Hand Controlled Gaming
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="ai-status">
+
+                <span class="status-dot"></span>
+
+                <span id="aiStatus">
+                    AI READY
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==============================
+             GAME AREA
+             ============================== -->
+
+        <section class="game-section">
+
+
+            <!-- CAMERA PANEL -->
+
+            <div class="camera-panel">
+
+                <div class="panel-title">
+                    <span>📷</span>
+                    CAMERA
+                </div>
+
+                <video
+                    id="video"
+                    autoplay
+                    playsinline>
+                </video>
+
+                <div class="camera-status"
+                     id="status">
+
+                    Waiting for camera...
+
+                </div>
+
+            </div>
+
+
+            <!-- GAME -->
+
+            <div class="game-wrapper">
+
+                <!-- HUD -->
+
+                <div class="hud">
+
+                    <div class="hud-box">
+
+                        <small>SCORE</small>
+
+                        <strong id="score">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="hud-box combo-box">
+
+                        <small>COMBO</small>
+
+                        <strong id="combo">
+                            x0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="hud-box lives-box">
+
+                        <small>LIVES</small>
+
+                        <strong id="lives">
+                            ❤️❤️❤️
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <canvas
+                    id="gameCanvas"
+                    width="900"
+                    height="600">
+                </canvas>
+
+
+                <!-- START SCREEN -->
+
+                <div
+                    id="startScreen"
+                    class="game-overlay">
+
+                    <div class="overlay-card">
+
+                        <div class="ninja-icon">
+                            🥷
+                        </div>
+
+                        <h2>
+                            FRUIT NINJA
+                        </h2>
+
+                        <p>
+                            Use your hand like a sword
+                            and slice the fruits!
+                        </p>
+
+                        <button
+                            id="startButton">
+
+                            ⚔️ START GAME
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- GAME OVER -->
+
+                <div
+                    id="gameOverScreen"
+                    class="game-overlay hidden">
+
+                    <div class="overlay-card">
+
+                        <div class="ninja-icon">
+                            💀
+                        </div>
+
+                        <h2>
+                            GAME OVER
+                        </h2>
+
+                        <p>
+                            Final Score
+                        </p>
+
+                        <div
+                            id="finalScore"
+                            class="final-score">
+
+                            0
+
+                        </div>
+
+                        <button
+                            id="restartButton">
+
+                            🔄 PLAY AGAIN
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             CONTROLS
+             ============================== -->
+
+        <section class="instructions">
+
+            <h2>
+                🎮 HOW TO PLAY
+            </h2>
+
+            <div class="instruction-grid">
+
+                <div class="instruction-card">
+
+                    <div class="instruction-icon">
+                        ✋
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            SHOW YOUR HAND
+                        </h3>
+
+                        <p>
+                            Place your palm in front
+                            of the camera.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="instruction-card">
+
+                    <div class="instruction-icon">
+                        ⚔️
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            MOVE TO SLASH
+                        </h3>
+
+                        <p>
+                            Move your hand quickly
+                            across the fruits.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="instruction-card">
+
+                    <div class="instruction-icon">
+                        🍎
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            CUT FRUITS
+                        </h3>
+
+                        <p>
+                            Slice fruits to increase
+                            your score.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="instruction-card">
+
+                    <div class="instruction-icon">
+                        💣
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            AVOID BOMBS
+                        </h3>
+
+                        <p>
+                            Don't slice the bombs!
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p>
+                ⚡ Powered by
+                <strong>AI Hand Tracking</strong>
+                • MediaPipe
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- ==============================
+         MEDIAPIPE
+         ============================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+
+    <!-- GAME JS -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
